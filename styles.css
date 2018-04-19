@@ -1,10 +1,25 @@
+body{
+}
 #header{
-	margin-left: 50px;
+	width: 960px;
+	margin: 50px auto;
 }
 #container{
-	margin: 50px 0 0 50px;
+	width: 960px;
+	margin: 50px auto;
+	text-align: justify;
+	text-justify: inter-ideograph;
+
+}
+img{
+	display: block;
+	margin: auto;
+}
+ul>li{
+	font-size: 1.5em;
+	font-weight: bold;
+	margin: 20px 0 5px 0;
 }
 .content{
 	text-indent: 2em;
-	width: 610px;
 }

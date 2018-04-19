@@ -16,25 +16,35 @@
 
 	<body>
 		<div id="header">
-		<h1>Drone-View Building Idetntification</h1>
+		<h2>Drone-View Building Identification by Cross-View Visual Learning and Relative Spatial Estimation</h2>
 		</div>
 		<div id="container">
+			<div id ="main">
+			<img width=540 src="first.png" />
 			<ul>
 				<li>Authors</li>
-				Chun-Wei Chen, Yeu-Chen	Hsieh, Yin-Hsi Kuo, Tang Lee, Winston H. Hsu
+				<a href="http://www.cmlab.csie.ntu.edu.tw/~jacky82226/">Chun-Wei Chen</a>, <a href ="http://www.cmlab.csie.ntu.edu.tw/~kuonini/">Yin-Hsi Kuo</a>, Tang Lee, Cheng-Han Lee, <a href="http://winstonhsu.info/">Winston Hsu</a>
 		        <li>Abstract</li>
 		        <p class="content">
-					Recently, drones become more popular and equip several types of sensors (for image and geo-location). Simultaneously, to enable drone-based applications, it is essential to provide related information (e.g., building information) to understand the environment around the drone. We frame this drone-view building identification as landmark retrieval problem: given a landmark query with its images, geo-location and drone's current location, retrieve the most likely building proposal in a drone-view image. Although there are few annotated drone-view images to date, fortunately, there are a lot of images from other viewpoints, such as ground-level, street-view and aerial images. Hence, we propose a cross-view triplet neural network to learn visual similarity between drone-view and other views. In addition, we further consider spatial estimation (drone-angle and drone-distance) for each building proposal to utilize drone's geo-location on geographic map in order to solve this challenging cross-view image retrieval problem. Moreover, we collect a new drone-view dataset (Drone-LR) on our own owing to the lack of annotated drone-view dataset. We evaluate different neural networks and investigate how to achieve the best performance on various conditions. Finally, our method outperforms state-of-the-art approaches (CNN features) by 0.31 mAP, which indeed helps drones more deeply understand surroundings.
+Drones become popular recently and equip more sensors than traditional cameras, which bring emerging applications and research. To enable drone-based applications, providing related information (e.g., building) to understand the environment around the drone is essential. We frame this drone-view building identification as building retrieval problem: given a building (multimodal query) with its images, geolocation and drone's current location, we aim to retrieve the most likely proposal (building candidate) on a drone-view image. Despite few annotated drone-view images to date, there are many images of other views from the Web, like ground-level, street-view and aerial images. Thus, we propose a cross-view triplet neural network to learn visual similarity between drone-view and other views, further design relative spatial estimation of each proposal and the drone, and collect new drone-view datasets for the task. Our method outperforms triplet neural network by 0.12 mAP. (i.e., 22.9 to 35.0, +53% in a sub-dataset [LA])
 				</p>
-		        <li>Paper link</li>
+				<li>Publication</li>
+				Chun-Wei Chen, Yin-Hsi Kuo, Tang Lee, Chen-Han Lee, Winston Hsu. Drone-View Building Identification by Cross-View Visual Learning and Relative Spatial Estimation, CVPR 2018 Workshop 
 		        <li>Dataset
 		        	<ol>
-		        		<li>Drone-LR</li>
+		        		<li>Drone-BR</li>
 		        		<li>Drone-BD</li>
 		        		<li>IG-City8</li>
 		        	</ol>
 		        </li>
+		        <li>Experimental Results
+		        </li>
+		        <li>
+		        	Acknowledgement
+		        </li>
+		        This work was supported in part by MediaTek Inc and the Ministry of Science and Technology, Taiwan, under Grant MOST 107-2634-F-002-007. We also benefit from the grants from NVIDIA and the NVIDIA DGX-1 AI Supercomputer.
     		</ul>
+    		</div>
     	</div>
 	</body>
 </html>
