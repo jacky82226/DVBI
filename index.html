@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+	<head>
+		<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Drone-View Building Idetntification</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js">
+		<!--<script src="http://code.jquery.com/jquery-1.9.1.js"></script>-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="magic.js"></script>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+
+	<body>
+		<div id="header">
+		<h1>Drone-View Building Idetntification</h1>
+		</div>
+		<div id="container">
+			<ul>
+				<li>Authors</li>
+				Chun-Wei Chen, Yeu-Chen	Hsieh, Yin-Hsi Kuo, Tang Lee, Winston H. Hsu
+		        <li>Abstract</li>
+		        <p class="content">
+					Recently, drones become more popular and equip several types of sensors (for image and geo-location). Simultaneously, to enable drone-based applications, it is essential to provide related information (e.g., building information) to understand the environment around the drone. We frame this drone-view building identification as landmark retrieval problem: given a landmark query with its images, geo-location and drone's current location, retrieve the most likely building proposal in a drone-view image. Although there are few annotated drone-view images to date, fortunately, there are a lot of images from other viewpoints, such as ground-level, street-view and aerial images. Hence, we propose a cross-view triplet neural network to learn visual similarity between drone-view and other views. In addition, we further consider spatial estimation (drone-angle and drone-distance) for each building proposal to utilize drone's geo-location on geographic map in order to solve this challenging cross-view image retrieval problem. Moreover, we collect a new drone-view dataset (Drone-LR) on our own owing to the lack of annotated drone-view dataset. We evaluate different neural networks and investigate how to achieve the best performance on various conditions. Finally, our method outperforms state-of-the-art approaches (CNN features) by 0.31 mAP, which indeed helps drones more deeply understand surroundings.
+				</p>
+		        <li>Paper link</li>
+		        <li>Dataset
+		        	<ol>
+		        		<li>Drone-LR</li>
+		        		<li>Drone-BD</li>
+		        		<li>IG-City8</li>
+		        	</ol>
+		        </li>
+    		</ul>
+    	</div>
+	</body>
+</html>
