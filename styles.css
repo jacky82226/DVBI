@@ -1,5 +1,8 @@
 body{
 }
+table{
+	margin: 15px auto 30px auto !important;
+}
 #header{
 	width: 960px;
 	margin: 50px auto;
@@ -18,8 +21,26 @@ img{
 ul>li{
 	font-size: 1.5em;
 	font-weight: bold;
-	margin: 20px 0 5px 0;
+	margin-top: 20px;
+}
+li{
+	margin: 10px 0 10px 0;
+}
 }
 .content{
 	text-indent: 2em;
+}
+#exp{
+	padding: 20px 0;
+}
+#exp img{
+	margin: 0;
+	float: left;
+}
+#exp>div{
+	width: 960px;
+	height: 300px;
+}
+p{
+	margin: 5px 0 20px 0;
 }

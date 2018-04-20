@@ -23,7 +23,7 @@
 			<img width=540 src="first.png" />
 			<ul>
 				<li>Authors</li>
-				<a href="http://www.cmlab.csie.ntu.edu.tw/~jacky82226/">Chun-Wei Chen</a>, <a href ="http://www.cmlab.csie.ntu.edu.tw/~kuonini/">Yin-Hsi Kuo</a>, Tang Lee, Cheng-Han Lee, <a href="http://winstonhsu.info/">Winston Hsu</a>
+				<a href="http://www.cmlab.csie.ntu.edu.tw/~jacky82226/">Chun-Wei Chen</a>, <a href ="http://www.cmlab.csie.ntu.edu.tw/~kuonini/">Yin-Hsi Kuo</a>, <a href="https://weitang114.github.io">Tang Lee</a>, <a href="http://www.cmlab.csie.ntu.edu.tw/~steven413d/">Cheng-Han Lee</a>, <a href="http://winstonhsu.info/">Winston Hsu</a>
 		        <li>Abstract</li>
 		        <p class="content">
 Drones become popular recently and equip more sensors than traditional cameras, which bring emerging applications and research. To enable drone-based applications, providing related information (e.g., building) to understand the environment around the drone is essential. We frame this drone-view building identification as building retrieval problem: given a building (multimodal query) with its images, geolocation and drone's current location, we aim to retrieve the most likely proposal (building candidate) on a drone-view image. Despite few annotated drone-view images to date, there are many images of other views from the Web, like ground-level, street-view and aerial images. Thus, we propose a cross-view triplet neural network to learn visual similarity between drone-view and other views, further design relative spatial estimation of each proposal and the drone, and collect new drone-view datasets for the task. Our method outperforms triplet neural network by 0.12 mAP. (i.e., 22.9 to 35.0, +53% in a sub-dataset [LA])
@@ -33,12 +33,199 @@ Drones become popular recently and equip more sensors than traditional cameras, 
 		        <li>Dataset
 		        	<ol>
 		        		<li>Drone-BR</li>
+		        		<img width=960 src="supplemental/Drone-BR.png"/>
 		        		<li>Drone-BD</li>
 		        		<li>IG-City8</li>
 		        	</ol>
 		        </li>
-		        <li>Experimental Results
-		        </li>
+		        <li>Experimental Results</li>
+				<style type="text/css">
+				.tg  {border-collapse:collapse;border-spacing:0;}
+				.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+				.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+				.tg .tg-64g0{font-weight:bold;font-size:18px;font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif !important;;border-color:inherit;text-align:center;vertical-align:top}
+				.tg .tg-k0up{font-size:18px;font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif !important;;border-color:inherit;text-align:center;vertical-align:top}
+				.tg .tg-3dew{font-size:18px;font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif !important;;text-align:center;vertical-align:top}
+				</style>
+				<table class="tg" style="undefined;table-layout: fixed; width: 656px;">
+				<colgroup>
+				<col style="width: 193px">
+				<col style="width: 119px">
+				<col style="width: 167px">
+				<col style="width: 177px">
+				</colgroup>
+				  <tr>
+				    <th class="tg-k0up">Query images<br>mAP (%)</th>
+				    <th class="tg-3dew">Aerial image</th>
+				    <th class="tg-3dew">Street-view image<br></th>
+				    <th class="tg-64g0">Ground-level image</th>
+				  </tr>
+				  <tr>
+				    <td class="tg-k0up">ImageNet-AlexNet [1]</td>
+				    <td class="tg-3dew">5.32</td>
+				    <td class="tg-3dew">7.43</td>
+				    <td class="tg-k0up">15.87</td>
+				  </tr>
+				  <tr>
+				    <td class="tg-k0up">Places205-AlexNet [2]</td>
+				    <td class="tg-3dew">6.98</td>
+				    <td class="tg-3dew">9.27</td>
+				    <td class="tg-k0up">20.55</td>
+				  </tr>
+				  <tr>
+				    <td class="tg-64g0">IG-City8-Triplet [3]</td>
+				    <td class="tg-3dew">7.38</td>
+				    <td class="tg-3dew">13.06</td>
+				    <td class="tg-64g0">21.61</td>
+				  </tr>
+				</table>
+				<p>
+					Effect of initial models. mAP (%) of various initial models on Drone-BR with 3 different types of 585 queries. It is critical to utilize related dataset (IG-City8) for getting better performance. Ground-level image is the most useful due to containing more visual information than other views.
+				</p>
+				<style type="text/css">
+				.tg  {border-collapse:collapse;border-spacing:0;}
+				.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+				.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+				.tg .tg-k0up{font-size:18px;font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif !important;;border-color:inherit;text-align:center;vertical-align:top}
+				.tg .tg-3dew{font-size:18px;font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif !important;;text-align:center;vertical-align:top}
+				</style>
+				<table class="tg" style="undefined;table-layout: fixed; width: 675px;">
+				<colgroup>
+				<col style="width: 388px">
+				<col style="width: 287px">
+				</colgroup>
+				  <tr>
+				    <th class="tg-k0up">Methods</th>
+				    <th class="tg-3dew">mAP (%) on 585 queries</th>
+				  </tr>
+				  <tr>
+				    <td class="tg-k0up">Drone-angle (Da)</td>
+				    <td class="tg-3dew">8.91</td>
+				  </tr>
+				  <tr>
+				    <td class="tg-k0up">Drone-distance (Dx, Dy)</td>
+				    <td class="tg-3dew">12.29</td>
+				  </tr>
+				  <tr>
+				    <td class="tg-k0up">Drone-angle(Da) + Drone-distance (Dx, Dy)</td>
+				    <td class="tg-3dew">16.23</td>
+				  </tr>
+				  <tr>
+				    <td class="tg-3dew">IG-City8-Triplet [3] (Visual features)</td>
+				    <td class="tg-3dew">21.61</td>
+				  </tr>
+				</table>
+				<p>
+					The performance of relative spatial estimation is worse than visual features (even worse than methods without learning). Since there are multiple candidates with similar angle and distance, it is hard to distinguish them based on spatial estimation, which motivates us to leverage visual features.
+				</p>
+
+				<style type="text/css">
+				.tg  {border-collapse:collapse;border-spacing:0;}
+				.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;border-color:black;}
+				.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;border-color:black;}
+				.tg .tg-4saq{font-weight:bold;font-size:16px;font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif !important;;border-color:inherit;text-align:center;vertical-align:top}
+				.tg .tg-491y{font-size:16px;font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif !important;;text-align:center;vertical-align:top}
+				.tg .tg-ld9p{font-size:16px;font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif !important;;border-color:inherit;text-align:center;vertical-align:top}
+				.tg .tg-1uwp{font-weight:bold;font-size:16px;font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif !important;;text-align:center;vertical-align:top}
+				</style>
+				<table class="tg" style="undefined;table-layout: fixed; width: 932px;">
+				<colgroup>
+				<col style="width: 281px">
+				<col style="width: 132px">
+				<col style="width: 123px">
+				<col style="width: 131px">
+				<col style="width: 126px">
+				<col style="width: 139px">
+				</colgroup>
+				  <tr>
+				    <th class="tg-ld9p">mAP (%)<br># training images<br># testing images</th>
+				    <th class="tg-491y">Location A (LA)<br>362<br>223</th>
+				    <th class="tg-491y">Location B (LB)<br>355<br>230</th>
+				    <th class="tg-491y">Location C (LC)<br>453<br>132</th>
+				    <th class="tg-ld9p">Weather A (WA)<br>149<br>436</th>
+				    <th class="tg-491y">Weather B (WB)<br>436<br>149</th>
+				  </tr>
+				  <tr>
+				    <td class="tg-ld9p">ImageNet-AlexNet [1]</td>
+				    <td class="tg-491y">15.00</td>
+				    <td class="tg-491y">17.70</td>
+				    <td class="tg-491y">14.14</td>
+				    <td class="tg-ld9p">15.09</td>
+				    <td class="tg-491y">16.15</td>
+				  </tr>
+				  <tr>
+				    <td class="tg-491y">Places205-AlexNet [2]</td>
+				    <td class="tg-491y">19.56</td>
+				    <td class="tg-491y">19.33</td>
+				    <td class="tg-491y">24.36</td>
+				    <td class="tg-491y">17.96</td>
+				    <td class="tg-491y">21.48</td>
+				  </tr>
+				  <tr>
+				    <td class="tg-491y">IG-City8-Triplet [3]</td>
+				    <td class="tg-491y">20.42</td>
+				    <td class="tg-491y">20.43</td>
+				    <td class="tg-491y">25.69</td>
+				    <td class="tg-491y">18.56</td>
+				    <td class="tg-491y">22.70</td>
+				  </tr>
+				  <tr>
+				    <td class="tg-491y">Baseline (DT) [3]</td>
+				    <td class="tg-491y">22.89</td>
+				    <td class="tg-491y">24.07</td>
+				    <td class="tg-491y">26.72</td>
+				    <td class="tg-491y">32.19</td>
+				    <td class="tg-491y">43.79</td>
+				  </tr>
+				  <tr>
+				    <td class="tg-491y">CVDT (Max-pooling) [4]</td>
+				    <td class="tg-491y">25.14</td>
+				    <td class="tg-491y">24.97</td>
+				    <td class="tg-491y">25.02</td>
+				    <td class="tg-491y">33.04</td>
+				    <td class="tg-491y">44.30</td>
+				  </tr>
+				  <tr>
+				    <td class="tg-1uwp">CVDT (Cross-View Pooling)</td>
+				    <td class="tg-1uwp">27.75</td>
+				    <td class="tg-1uwp">26.81</td>
+				    <td class="tg-1uwp">28.87</td>
+				    <td class="tg-1uwp">34.47</td>
+				    <td class="tg-1uwp">46.45</td>
+				  </tr>
+				  <tr>
+				    <td class="tg-4saq">CVDT + Spatial (Da, Dx, Dy)</td>
+				    <td class="tg-1uwp">35.00</td>
+				    <td class="tg-1uwp">34.97</td>
+				    <td class="tg-1uwp">35.70</td>
+				    <td class="tg-4saq">42.60</td>
+				    <td class="tg-1uwp">50.15</td>
+				  </tr>
+				</table>
+				<p>
+					Cross-view visual learning. mAP of different models on each subset. LA means that DT and CVDT are trained on Location B and Location C, and tested on Location A (i.e., buildings in Location A are unseen). WA and WB have seen all the buildings but trained and tested under different weather. \# means the number of images. The results indicates our proposed CVDT+CVP outperforms others on all subsets. (IG-City8 follows the same training process as [3] and forms triplet by IG-City8. CVDT (CVP)+Spatial is the method combines with Da+Dx+Dy.)
+				</p>
+		        	<img width=960 src="final_table.png"/>
+		        	<p>Retrieval with relative spatial estimation: The retrieval accuracy of line charts is drawn by different top-ranked images on five various subsets among different models. Each model is trained by other subsets. The value after line is mAP. The results show that our proposed method (CVDT+Da+Dx+Dy) can achieve the best performance under various settings.
+		        	</p>
+		        	<div id="exp">
+		        		<div>
+				        	<img width=480 src="supplemental/result_1.png"/>
+				        	<img width=480 src="supplemental/result_2.png"/>
+			        	</div>
+			        	<hr/>
+			        	<div>
+				        	<img width=480 src="supplemental/result_3.png"/>
+				        	<img width=480 src="supplemental/result_4.png"/>
+			        	</div>
+		        	</div>
+				<li>Demo Video</li>
+				<iframe width="960" height="540" src="https://www.youtube.com/embed/sdq31ep2zYk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				<li>References</li>
+				1. Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. "Imagenet classification with deep convolutional neural networks." Advances in neural information processing systems. 2012.<br/>
+				2. Zhou, Bolei, et al. "Learning deep features for scene recognition using places database." Advances in neural information processing systems. 2014.<br/>
+				3. Schroff, Florian, Dmitry Kalenichenko, and James Philbin. "Facenet: A unified embedding for face recognition and clustering." Proceedings of the IEEE conference on computer vision and pattern recognition. 2015.<br/>
+				4. Su, Hang, et al. "Multi-view convolutional neural networks for 3d shape recognition." Proceedings of the IEEE international conference on computer vision. 2015.
 		        <li>
 		        	Acknowledgement
 		        </li>
