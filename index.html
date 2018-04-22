@@ -29,15 +29,53 @@
 Drones become popular recently and equip more sensors than traditional cameras, which bring emerging applications and research. To enable drone-based applications, providing related information (e.g., building) to understand the environment around the drone is essential. We frame this drone-view building identification as building retrieval problem: given a building (multimodal query) with its images, geolocation and drone's current location, we aim to retrieve the most likely proposal (building candidate) on a drone-view image. Despite few annotated drone-view images to date, there are many images of other views from the Web, like ground-level, street-view and aerial images. Thus, we propose a cross-view triplet neural network to learn visual similarity between drone-view and other views, further design relative spatial estimation of each proposal and the drone, and collect new drone-view datasets for the task. Our method outperforms triplet neural network by 0.12 mAP. (i.e., 22.9 to 35.0, +53% in a sub-dataset [LA])
 				</p>
 				<li>Publication</li>
-				Chun-Wei Chen, Yin-Hsi Kuo, Tang Lee, Chen-Han Lee, Winston Hsu. Drone-View Building Identification by Cross-View Visual Learning and Relative Spatial Estimation, CVPR 2018 Workshop 
-		        <li>Dataset
+				Chun-Wei Chen, Yin-Hsi Kuo, Tang Lee, Chen-Han Lee, Winston Hsu. Drone-View Building Identification by Cross-View Visual Learning and Relative Spatial Estimation, CVPR 2018 Workshop, VOCVALC 2018, 2nd International workshop on Visual Odometry and Computer Vision Applications based Location Clues
+				<li>Codes</li>
+				<a href="https://github.com/jacky82226/drone_view_building_identification">[github]</a>
+		        <li>Dataset</li>
+		        <div style="color: red">Please notice that this dataset is made available for academic research purpose only. Some images are collected from Google and Instagram, and the copyright belongs to the original owners. If any of the images belongs to you and you would like it removed, please kindly <a href="mailto: jacky82226@gmail.com">inform us</a>, we will remove it from our dataset immediately.</div>
 		        	<ol>
 		        		<li>Drone-BR</li>
-		        		<img width=960 src="supplemental/Drone-BR.png"/>
+		        		<img width=900 src="supplemental/Drone-BR.png"/>
+		        		<p>
+							We collect drone-view images with our drone (DJI 3) by designing and using an app for automatically recording all drone sensors including GPS tracker, compass and altimeter while capturing images. We fix the angle of depression as 20&deg;, raise the drone to 40m to 90m height and capture images with multiple buildings. Each image consists of 1-12 buildings as queries which have corresponding bounding boxes on drone-view images. We collect 80 images and annotate 108 buildings with bounding boxes on them at 3 locations under different weather. Besides, with Google Places API, we gather other information for these buildings including name, latitude and longitude. 
+
+							We gather ground-level, street-view and aerial images for each building. Since the same buildings may appear in different images, there are 585 building queries in total, which is <b>Drone-BR</b>. Since buildings may be occluded or in low resolution, it requires great effort to annotate them with their corresponding high-resolution drone-view images (mostly 3840x2160). In our setting, we search each building query in 200 proposals on a drone-view image, which means the Drone-BR can be also described as 585 queries with 16,000 (200*80) sub-images for searching. Our experiment results show that our method can perform better with limited training data and it is scalable because the building identification for each drone-view image is performed independently.		
+
+		        		</p>
+		        		<ul class="data">
+		        			<li>Building retrieval or identification</li>
+		        			<li>80 drone-view images: 18 [1920x1080] + 62 [3840x2160] (we collected)</li>
+		        			<li>585 queries (16,000 proposals)</li>
+		        			<li>(a) Building queries from web (b) Matched bounding boxes (c) Drone’s geolocation for images</li>
+		        			<li style="color: red">Because of the Google policy, we cannot provide the images from google directly. (i.e., ground-level images from Google Images Search, stree-view images from Google Stree-View and aerial images from Google Maps) However, these images are easy-to-get by automatically parsing codes with the buildings' names and GPS.</li>
+		        			<li><a href="https://www.dropbox.com/sh/rb5ruf5r93gozgo/AAB1zbPwb1vXIBEODFNdaS0_a">[download]</a></li>
+		        		</ul>
+		   
 		        		<li>Drone-BD</li>
+		        		<p>
+		        			On top of that, to the best of our knowledge, there are almost none drone-view images for building detection in any public datasets. In order to obtain building proposals with better quality, we also annotate 2,334 building bounding boxes on our 18 drone-view images and 185 images from Dronestagram website for training RPN [5]. This drone-view building detection dataset is called <b>Drone-BD</b>. 
+		        		</p>
+		        		<ul class="data">
+		        			<li>Building detection for proposals</li>
+		        			<li>80 drone-view images: 18 [1920x1080] images (we collected) + 185 [1200x800] images (from Dronestagram)</li>
+		        			<li>2,334 bounding boxes</li>
+		        			<li><a href="https://www.dropbox.com/sh/hducbqmff17z9uj/AACJZUmViUWgu26Wj101Kimva">[download]</a></li>
+		        		</ul>
+		        		
 		        		<li>IG-City8</li>
+		        		<p>
+		        			Due to the lack of drone-view data, we collect building images based on check-ins (locations) from Instagram and use the hashtag of #building and #buildings in 8 cities including New York, London, Paris, Hong Kong, Tokyo, Sydney, Berlin and San Francisco, to get building images. They are mostly ground-view or street-view images taken by users. We make buildings with the same location be a positive pair and with another random location be a negative pair to form a triplet. We manually remove some noisy images owing to not facing the correct building; eventually, there are 4,409 images, 848 buildings and 104,906 triplets in our Instagram building dataset called <b>IG-City8</b>. 
+		        		</p>
+		        		<ul class="data">
+		        			<li>Building matching in 8 cities</li>
+		        			<li>4,409 [640x640] images (from Instagram)</li>
+		        			<li>104,906 triplets (209,812 pairs)</li>
+		        			<li>(a) Matched building images (b) Date, check-ins, hashtags and geolocation for images</li>
+		        			<li><a href="https://www.dropbox.com/sh/gkojhos8uvv5hrf/AAD14P-qOAsqf_xVv4PC61Koa">[download]</a></i>
+		        		</ul>
+		        		
 		        	</ol>
-		        </li>
 		        <li>Experimental Results</li>
 				<style type="text/css">
 				.tg  {border-collapse:collapse;border-spacing:0;}
@@ -80,7 +118,7 @@ Drones become popular recently and equip more sensors than traditional cameras, 
 				  </tr>
 				</table>
 				<p>
-					Effect of initial models. mAP (%) of various initial models on Drone-BR with 3 different types of 585 queries. It is critical to utilize related dataset (IG-City8) for getting better performance. Ground-level image is the most useful due to containing more visual information than other views.
+					<b>Effect of initial models.</b> mAP (%) of various initial models on Drone-BR with 3 different types of 585 queries. It is critical to utilize related dataset (IG-City8) for getting better performance. Ground-level image is the most useful due to containing more visual information than other views.
 				</p>
 				<style type="text/css">
 				.tg  {border-collapse:collapse;border-spacing:0;}
@@ -116,7 +154,7 @@ Drones become popular recently and equip more sensors than traditional cameras, 
 				  </tr>
 				</table>
 				<p>
-					The performance of relative spatial estimation is worse than visual features (even worse than methods without learning). Since there are multiple candidates with similar angle and distance, it is hard to distinguish them based on spatial estimation, which motivates us to leverage visual features.
+					<b>Relative spatial estimation versus visual features.</b> The performance of relative spatial estimation is worse than visual features (even worse than methods without learning). Since there are multiple candidates with similar angle and distance, it is hard to distinguish them based on spatial estimation, which motivates us to leverage visual features.
 				</p>
 
 				<style type="text/css">
@@ -203,10 +241,10 @@ Drones become popular recently and equip more sensors than traditional cameras, 
 				  </tr>
 				</table>
 				<p>
-					Cross-view visual learning. mAP of different models on each subset. LA means that DT and CVDT are trained on Location B and Location C, and tested on Location A (i.e., buildings in Location A are unseen). WA and WB have seen all the buildings but trained and tested under different weather. \# means the number of images. The results indicates our proposed CVDT+CVP outperforms others on all subsets. (IG-City8 follows the same training process as [3] and forms triplet by IG-City8. CVDT (CVP)+Spatial is the method combines with Da+Dx+Dy.)
+					<b>Cross-view visual learning.</b> mAP of different models on each subset. LA means that DT and CVDT are trained on Location B and Location C, and tested on Location A (i.e., buildings in Location A are unseen). WA and WB have seen all the buildings but trained and tested under different weather. \# means the number of images. The results indicates our proposed CVDT+CVP outperforms others on all subsets. (IG-City8 follows the same training process as [3] and forms triplet by IG-City8. CVDT (CVP)+Spatial is the method combines with Da+Dx+Dy.)
 				</p>
 		        	<img width=960 src="final_table.png"/>
-		        	<p>Retrieval with relative spatial estimation: The retrieval accuracy of line charts is drawn by different top-ranked images on five various subsets among different models. Each model is trained by other subsets. The value after line is mAP. The results show that our proposed method (CVDT+Da+Dx+Dy) can achieve the best performance under various settings.
+		        	<p><b>Retrieval with relative spatial estimation.</b> The retrieval accuracy of line charts is drawn by different top-ranked images on five various subsets among different models. Each model is trained by other subsets. The value after line is mAP. The results show that our proposed method (CVDT+Da+Dx+Dy) can achieve the best performance under various settings.
 		        	</p>
 		        	<div id="exp">
 		        		<div>
@@ -225,11 +263,16 @@ Drones become popular recently and equip more sensors than traditional cameras, 
 				1. Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. "Imagenet classification with deep convolutional neural networks." Advances in neural information processing systems. 2012.<br/>
 				2. Zhou, Bolei, et al. "Learning deep features for scene recognition using places database." Advances in neural information processing systems. 2014.<br/>
 				3. Schroff, Florian, Dmitry Kalenichenko, and James Philbin. "Facenet: A unified embedding for face recognition and clustering." Proceedings of the IEEE conference on computer vision and pattern recognition. 2015.<br/>
-				4. Su, Hang, et al. "Multi-view convolutional neural networks for 3d shape recognition." Proceedings of the IEEE international conference on computer vision. 2015.
+				4. Su, Hang, et al. "Multi-view convolutional neural networks for 3d shape recognition." Proceedings of the IEEE international conference on computer vision. 2015. <br/>
+				5. Ren, Shaoqing, et al. "Faster r-cnn: Towards real-time object detection with region proposal networks." Advances in neural information processing systems. 2015.
 		        <li>
 		        	Acknowledgement
 		        </li>
 		        This work was supported in part by MediaTek Inc and the Ministry of Science and Technology, Taiwan, under Grant MOST 107-2634-F-002-007. We also benefit from the grants from NVIDIA and the NVIDIA DGX-1 AI Supercomputer.
+		        <li>
+		        	Contact
+		        </li>
+		        If you have any problems about our work, do not hesitate to contact me <a href="mailto: jacky82226@gmail.com">jacky82226@gmail.com</a>.
     		</ul>
     		</div>
     	</div>
