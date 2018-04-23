@@ -44,12 +44,30 @@ Drones become popular recently and equip more sensors than traditional cameras, 
 
 		        		</p>
 		        		<ul class="data">
-		        			<li>Building retrieval or identification</li>
+		        			<li>Building retrieval/identification task</li>
 		        			<li>80 drone-view images: 18 [1920x1080] + 62 [3840x2160] (we collected)</li>
 		        			<li>585 queries (16,000 proposals)</li>
 		        			<li>(a) Building queries from web (b) Matched bounding boxes (c) Drone’s geolocation for images</li>
-		        			<li style="color: red">Because of the Google policy, we cannot provide the images from google directly. (i.e., ground-level images from Google Images Search, stree-view images from Google Stree-View and aerial images from Google Maps) However, these images are easy-to-get by automatically parsing codes with the buildings' names and GPS.</li>
+		        			<li style="color: red">Because of the Google policy, we cannot provide the images colltected from Google directly. (i.e., ground-level images from <a href="https://images.google.com/">Google Images Search</a>, stree-view images from <a href="https://developers.google.com/streetview/">Google Stree-View</a> and aerial images from <a href="https://developers.google.com/maps/">Google Maps</a>) Nevertheless, these images can be obtained easily by automatically parsing codes with the buildings' names and GPS.</li>
 		        			<li><a href="https://www.dropbox.com/sh/rb5ruf5r93gozgo/AAB1zbPwb1vXIBEODFNdaS0_a">[download]</a></li>
+		        			<li>Drone-view images:</li>
+		        			<ol>
+		        				<li>frame/all/[filename].jpg: all of images</li>
+		        				<li>frame/LocationA/test/[filename].jpg: images taken at Sun Yat-sen Memorial Hall</li>
+		        				<li>frame/LocationB/test/[filename].jpg: images taken at Chiang Kai-shek Memorial Hall</li>
+		        				<li>frame/LocationC/test/[filename].jpg: images taken at Daan Forest Park</li>
+		        				<li>frame/WeatherA/test/[filename].jpg: images taken under the same weather</li>
+		        				<li>frame/WeatherB/test/[filename].jpg: images taken under the same weather</li>
+		        			</ol>
+		        			<li>location.txt: [filename] [latitude] [longitude] [compass] [height] P.S.: compass: NESW(0, 90, 180, -90)</li>
+		        			<li>Building proposals by Faster R-CNN for each image: faster_bb/[filename].txt</li>
+		        			<li>Building queries for each image by <a href="https://developers.google.com/places/">Google Places API</a>: poi/[filename].txt
+		        				<ul><li>
+		        				[building name]\t[latitude]\t[longitude]\t[building type]\t[google image]\t[x1,y1,x2,y2]
+		        				</li></ul>
+		        			</li>
+
+
 		        		</ul>
 		   
 		        		<li>Drone-BD</li>
@@ -57,10 +75,23 @@ Drones become popular recently and equip more sensors than traditional cameras, 
 		        			On top of that, to the best of our knowledge, there are almost none drone-view images for building detection in any public datasets. In order to obtain building proposals with better quality, we also annotate 2,334 building bounding boxes on our 18 drone-view images and 185 images from Dronestagram website for training RPN [5]. This drone-view building detection dataset is called <b>Drone-BD</b>. 
 		        		</p>
 		        		<ul class="data">
-		        			<li>Building detection for proposals</li>
+		        			<li>Building detection task for proposals</li>
 		        			<li>80 drone-view images: 18 [1920x1080] images (we collected) + 185 [1200x800] images (from Dronestagram)</li>
-		        			<li>2,334 bounding boxes</li>
+		        			<li>2,334 bounding boxes for buildings</li>
 		        			<li><a href="https://www.dropbox.com/sh/hducbqmff17z9uj/AACJZUmViUWgu26Wj101Kimva">[download]</a></li>
+		        			<li>
+		        				Collected drone-view images: 
+		        				<ol>
+		        				<li>Collected/img/[filename].jpg</li>
+		        				<li>Collected/annotation/[filename].txt: x1 y1 x2 y2 1</li>
+		        				</ol>
+		        			</li>
+		        			<li>
+		        				Dronestagram drone-view images:<ol>
+		        				<li>Dronestagram/img/[filename].jpg</li>
+		        				<li>Dronestagram/annotation/[filename].xml: tag([xmin], [ymin], [xmax], [ymax])
+		        				</ol>
+		        			</li>
 		        		</ul>
 		        		
 		        		<li>IG-City8</li>
@@ -68,11 +99,12 @@ Drones become popular recently and equip more sensors than traditional cameras, 
 		        			Due to the lack of drone-view data, we collect building images based on check-ins (locations) from Instagram and use the hashtag of #building and #buildings in 8 cities including New York, London, Paris, Hong Kong, Tokyo, Sydney, Berlin and San Francisco, to get building images. They are mostly ground-view or street-view images taken by users. We make buildings with the same location be a positive pair and with another random location be a negative pair to form a triplet. We manually remove some noisy images owing to not facing the correct building; eventually, there are 4,409 images, 848 buildings and 104,906 triplets in our Instagram building dataset called <b>IG-City8</b>. 
 		        		</p>
 		        		<ul class="data">
-		        			<li>Building matching in 8 cities</li>
-		        			<li>4,409 [640x640] images (from Instagram)</li>
-		        			<li>104,906 triplets (209,812 pairs)</li>
-		        			<li>(a) Matched building images (b) Date, check-ins, hashtags and geolocation for images</li>
-		        			<li><a href="https://www.dropbox.com/sh/gkojhos8uvv5hrf/AAD14P-qOAsqf_xVv4PC61Koa">[download]</a></i>
+		        			<li>Building matching task in 8 cities</li>
+		        			<li>4,409 [640x640] images (from Instagram) for 848 buildings</li>
+		        			<li>104,906 triplets (209,812 pairs) for matched building images</li>
+		        			<!--<li>(a) Matched building images (b) Date, check-ins, hashtags and geolocation for images</li>-->		
+		        			<li><a href="https://www.dropbox.com/sh/gkojhos8uvv5hrf/AAD14P-qOAsqf_xVv4PC61Koa">[download]</a></li>
+		        			<li>Images of the same building are in the same directory.</li>
 		        		</ul>
 		        		
 		        	</ol>
