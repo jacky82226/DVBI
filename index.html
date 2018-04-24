@@ -60,7 +60,10 @@ Drones become popular recently and equip more sensors than traditional cameras, 
 		        				<li>frame/WeatherB/test/[filename].jpg: images taken under the same weather B.</li>
 		        			</ol>
 		        			<li>location.txt: [filename] [latitude] [longitude] [compass] [height] P.S.: compass: NESW(0, 90, 180, -90)</li>
-		        			<li>Building proposals by Faster R-CNN for each image: faster_bb/[filename].txt</li>
+		        			<li>Bounding boxes for building proposals by Faster R-CNN on each image: faster_bb/[filename].txt</li>
+			        			<ul><li>
+			        				[x1 y1 x2 y2 score]
+			        				</li></ul>
 		        			<li>Building queries for each image by <a href="https://developers.google.com/places/">Google Places API</a>: poi/[filename].txt
 		        				<ul><li>
 		        				[building name]\t[latitude]\t[longitude]\t[building type]\t[google image]\t[x1,y1,x2,y2]
